@@ -37,6 +37,12 @@ def run_startup() -> None:
     """
     logger.info("Running startup data loading")
 
+    # 0. Ensure data directories exist
+    db_dir = os.path.dirname(settings.database_path)
+    if db_dir:
+        os.makedirs(db_dir, exist_ok=True)
+    os.makedirs(settings.data_dir, exist_ok=True)
+
     # 1. Ensure all tables exist
     create_tables()
     logger.info("Database tables created (or already exist)")

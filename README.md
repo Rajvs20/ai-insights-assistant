@@ -180,7 +180,18 @@ python generate_pdfs.py
 cd ..
 ```
 
-**2. Set up the backend**:
+**2. Configure environment variables**:
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` and set your API key. For Google Gemini (default):
+```
+GEMINI_API_KEY=your-gemini-api-key
+```
+
+**3. Set up the backend**:
 
 ```bash
 cd backend
@@ -189,17 +200,10 @@ source .venv/bin/activate    # On Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-Create a `.env` file in the project root (or copy from `.env.example`):
+Start the backend server (from the `backend/` directory):
 
 ```bash
-cp .env.example .env
-# Edit .env and set your OPENAI_API_KEY
-```
-
-Start the backend server:
-
-```bash
-uvicorn app.main:app --reload --port 8000
+.venv/bin/uvicorn app.main:app --reload --port 8000 --env-file ../.env
 ```
 
 The backend will automatically create the SQLite database, ingest CSV seed files, and index PDF documents on startup. API docs are available at [http://localhost:8000/docs](http://localhost:8000/docs).
@@ -244,11 +248,11 @@ docker compose up --build
 | `OPENAI_BASE_URL` | | Custom base URL for other OpenAI-compatible providers (e.g. Ollama) |
 | `JWT_SECRET` | `change-me-in-production` | Secret key for signing JWT tokens |
 | `DEBUG` | `false` | Enable debug mode and verbose logging |
-| `DATABASE_PATH` | `data/app.db` | Path to the SQLite database file |
-| `DATA_DIR` | `data` | Root directory for data files |
-| `PDF_STORAGE_DIR` | `data/pdfs` | Directory containing PDF documents |
-| `CSV_STORAGE_DIR` | `data/csv` | Directory containing CSV files |
-| `CHROMA_PERSIST_DIR` | `data/chroma` | ChromaDB persistence directory |
+| `DATABASE_PATH` | `../data/app.db` | Path to the SQLite database file |
+| `DATA_DIR` | `../data` | Root directory for data files |
+| `PDF_STORAGE_DIR` | `../data/pdfs` | Directory containing PDF documents |
+| `CSV_STORAGE_DIR` | `../data/csv` | Directory containing CSV files |
+| `CHROMA_PERSIST_DIR` | `../data/chroma` | ChromaDB persistence directory |
 
 ## Switching AI Model Providers
 
