@@ -321,6 +321,17 @@ These questions are designed to work with the included sample data:
 5. **"Why is comedy performing weakly this quarter?"** — Combines SQL data with PDF report insights to explain genre performance.
 6. **"What recommendations would you give leadership?"** — Synthesizes data from all sources (SQL, CSV, PDF) into strategic recommendations.
 
+## Screenshots
+
+### Login Page
+![Login](docs/screenshots/login.png)
+
+### Dashboard — Suggested Questions
+![Dashboard](docs/screenshots/dashboard.png)
+
+### Chat with Results, Charts & Insights
+![Chat Results](docs/screenshots/chat-results.png)
+
 ## Demo Credentials
 
 | Field | Value |
