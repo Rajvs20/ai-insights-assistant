@@ -208,7 +208,7 @@ Start the backend server (from the `backend/` directory):
 
 The backend will automatically create the SQLite database, ingest CSV seed files, and index PDF documents on startup. API docs are available at [http://localhost:8000/docs](http://localhost:8000/docs).
 
-**3. Set up the frontend**:
+**4. Set up the frontend**:
 
 ```bash
 cd frontend
